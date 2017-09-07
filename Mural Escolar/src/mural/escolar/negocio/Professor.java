@@ -7,8 +7,26 @@ package mural.escolar.negocio;
 
 /**
  *
- * @author gustavo
+ * @author Lucas Vieira
  */
 public class Professor extends Pessoa{
+    private String cpf;
+    private String siape;
     
+    
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getSiape() {
+        return siape;
+    }
+
+    public void setSiape(String siape) {
+        this.siape = siape;
+    }
 }

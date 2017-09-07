@@ -6,6 +6,8 @@
 package mural.escolar.view;
 
 import javax.swing.JOptionPane;
+import mural.escolar.controller.ProfessorController;
+import mural.escolar.negocio.Professor;
 
 /**
  *
@@ -33,12 +35,12 @@ public class CadastroProfessor extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         TXTnomeProf = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        TXTsiabi = new javax.swing.JTextField();
+        TXTsiape = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         TXTemailProf = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         BTNcadastro = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        TXTcpf = new javax.swing.JFormattedTextField();
 
         setClosable(true);
 
@@ -65,7 +67,7 @@ public class CadastroProfessor extends javax.swing.JInternalFrame {
         });
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            TXTcpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -85,10 +87,10 @@ public class CadastroProfessor extends javax.swing.JInternalFrame {
                                 .addComponent(TXTnomeProf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(BTNcadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(TXTcpf, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(TXTemailProf, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addComponent(TXTsiabi, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TXTsiape, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(115, 115, 115))
                     .addGroup(layout.createSequentialGroup()
@@ -107,7 +109,7 @@ public class CadastroProfessor extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TXTsiabi, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TXTsiape, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -115,7 +117,7 @@ public class CadastroProfessor extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TXTcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(BTNcadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -132,17 +134,26 @@ public class CadastroProfessor extends javax.swing.JInternalFrame {
         if (reply == JOptionPane.YES_OPTION)
         {
             // Incrementar Banco de Dados
-            JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso");
+            Professor prof = new Professor();
+            ProfessorController pc = new ProfessorController();
+            
+            prof.setNome(TXTnomeProf.getText());
+            prof.setSiape(TXTsiape.getText());
+            prof.setEmail(TXTemailProf.getText());
+            prof.setCpf(TXTcpf.getText());
+            prof.setSenha("padrao");
+            
+            JOptionPane.showMessageDialog(null, pc.inserir(prof));
         }
     }//GEN-LAST:event_BTNcadastroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNcadastro;
+    private javax.swing.JFormattedTextField TXTcpf;
     private javax.swing.JTextField TXTemailProf;
     private javax.swing.JTextField TXTnomeProf;
-    private javax.swing.JTextField TXTsiabi;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JTextField TXTsiape;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
