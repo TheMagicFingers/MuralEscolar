@@ -6,6 +6,7 @@
 package mural.escolar.view;
 
 import javax.swing.JOptionPane;
+import mural.escolar.negocio.Aluno;
 
 /**
  *
@@ -16,8 +17,9 @@ public class AlterarAluno extends javax.swing.JFrame {
     /**
      * Creates new form AlterarAluno
      */
-    public AlterarAluno() {
+    public AlterarAluno(Aluno aluno) {
         initComponents();
+        
     }
 
     /**
@@ -161,7 +163,7 @@ public class AlterarAluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlterarAluno().setVisible(true);
+                new AlterarAluno(aluno).setVisible(true);
             }
         });
     }
