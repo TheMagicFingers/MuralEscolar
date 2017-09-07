@@ -11,7 +11,7 @@ import mural.escolar.negocio.Aluno;
 
 /**
  *
- * @author Jandira Evalde
+ * @author Lucas Vieira
  */
 public class CadastroAluno extends javax.swing.JInternalFrame {
 
