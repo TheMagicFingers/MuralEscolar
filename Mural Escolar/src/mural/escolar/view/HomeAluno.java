@@ -5,6 +5,8 @@
  */
 package mural.escolar.view;
 
+import java.util.ArrayList;
+import java.util.List;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.negocio.Aluno;
 
@@ -159,6 +161,10 @@ public class HomeAluno extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
         AlunoController alunoController = new AlunoController();
+        List<Aluno> aluno = new ArrayList<>();
+        aluno = alunoController.listarTodos();
+        
+        
         
         //Aluno aluno = alunoController.pesquisarAlunoPorEmail(email);        
     }//GEN-LAST:event_jTextField1ActionPerformed
