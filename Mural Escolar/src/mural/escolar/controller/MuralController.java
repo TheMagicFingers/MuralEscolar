@@ -16,4 +16,5 @@ public class MuralController {
         MuralDAOImp dao = new MuralDAOImp();
         return dao.inserir(professor, texto);
     }
+    
 }
