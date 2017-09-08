@@ -58,6 +58,7 @@ public class AlunoDAOImp implements AlunoDAO{
             pst.setString(2, aluno.getMatricula());
             pst.setString(3, aluno.getEmail());
             pst.setString(4, aluno.getCurso());
+            pst.setString(5, aluno.getEmail());
             
             int res = pst.executeUpdate();
             

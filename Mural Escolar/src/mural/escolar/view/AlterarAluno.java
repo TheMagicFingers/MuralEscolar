@@ -6,6 +6,7 @@
 package mural.escolar.view;
 
 import javax.swing.JOptionPane;
+import mural.escolar.controller.AlunoController;
 import mural.escolar.negocio.Aluno;
 
 /**
@@ -19,7 +20,10 @@ public class AlterarAluno extends javax.swing.JFrame {
      */
     public AlterarAluno(Aluno aluno) {
         initComponents();
-        
+        TXTemailAluno.setText(aluno.getEmail());
+        TXTcurso.setText(aluno.getCurso());
+        TXTnomeAluno.setText(aluno.getNome());
+        TXTmatricula.setText(aluno.getMatricula());
     }
 
     /**
@@ -126,7 +130,15 @@ public class AlterarAluno extends javax.swing.JFrame {
         if (reply == JOptionPane.YES_OPTION)
         {
             // Incrementar Banco de Dados
-            JOptionPane.showMessageDialog(null, "Cadastrado alterado com sucesso");
+            Aluno aluno = new Aluno();
+            AlunoController controllerAluno = new AlunoController();
+            
+            aluno.setNome(TXTnomeAluno.getText());
+            aluno.setEmail(TXTemailAluno.getText());
+            aluno.setMatricula(TXTmatricula.getText());
+            aluno.setCurso(TXTcurso.getText());
+            
+            JOptionPane.showMessageDialog(null, controllerAluno.alterar(aluno));
         }
     }//GEN-LAST:event_BTNcadastroActionPerformed
 
@@ -163,7 +175,7 @@ public class AlterarAluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlterarAluno(aluno).setVisible(true);
+                //new AlterarAluno(aluno).setVisible(true);
             }
         });
     }
