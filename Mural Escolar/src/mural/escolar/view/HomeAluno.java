@@ -5,14 +5,11 @@
  */
 package mural.escolar.view;
 
-import java.util.ArrayList;
-import java.util.List;
-import mural.escolar.controller.AlunoController;
 import mural.escolar.negocio.Aluno;
 
 /**
  *
- * @author Jandira Evalde
+ * @author Lucas Vieira
  */
 public class HomeAluno extends javax.swing.JFrame {
 
@@ -24,6 +21,8 @@ public class HomeAluno extends javax.swing.JFrame {
     public HomeAluno(Aluno a) {
         initComponents();
         this.aluno = a;
+        TXTnome.setText(aluno.getNome());
+        
     }
 
     /**
@@ -36,13 +35,13 @@ public class HomeAluno extends javax.swing.JFrame {
     private void initComponents() {
 
         PainelAluno = new javax.swing.JDesktopPane();
-        jTextField1 = new javax.swing.JTextField();
+        TXTnome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TXTarea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        TXTarea2 = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        TXTarea3 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -52,29 +51,30 @@ public class HomeAluno extends javax.swing.JFrame {
 
         PainelAluno.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField1.setEditable(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        TXTnome.setEditable(false);
+        TXTnome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TXTnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                TXTnomeActionPerformed(evt);
             }
         });
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        TXTarea1.setEditable(false);
+        TXTarea1.setColumns(20);
+        TXTarea1.setRows(5);
+        jScrollPane1.setViewportView(TXTarea1);
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        TXTarea2.setEditable(false);
+        TXTarea2.setColumns(20);
+        TXTarea2.setRows(5);
+        jScrollPane2.setViewportView(TXTarea2);
 
-        jTextArea3.setEditable(false);
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        TXTarea3.setEditable(false);
+        TXTarea3.setColumns(20);
+        TXTarea3.setRows(5);
+        jScrollPane3.setViewportView(TXTarea3);
 
-        PainelAluno.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        PainelAluno.setLayer(TXTnome, javax.swing.JLayeredPane.DEFAULT_LAYER);
         PainelAluno.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         PainelAluno.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         PainelAluno.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -87,7 +87,7 @@ public class HomeAluno extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PainelAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelAlunoLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TXTnome, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(457, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelAlunoLayout.createSequentialGroup()
                         .addGroup(PainelAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -100,7 +100,7 @@ public class HomeAluno extends javax.swing.JFrame {
             PainelAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelAlunoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TXTnome, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -156,21 +156,15 @@ public class HomeAluno extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        AlterarSenhaAluno telaAltAluno = new AlterarSenhaAluno();
+        AlterarSenhaAluno telaAltAluno = new AlterarSenhaAluno(aluno);
         PainelAluno.add(telaAltAluno);
         telaAltAluno.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TXTnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXTnomeActionPerformed
         // TODO add your handling code here:
-        AlunoController alunoController = new AlunoController();
-        List<Aluno> aluno = new ArrayList<>();
-        aluno = alunoController.listarTodos();
         
-        
-        
-        //Aluno aluno = alunoController.pesquisarAlunoPorEmail(email);        
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TXTnomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,6 +203,10 @@ public class HomeAluno extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane PainelAluno;
+    private javax.swing.JTextArea TXTarea1;
+    private javax.swing.JTextArea TXTarea2;
+    private javax.swing.JTextArea TXTarea3;
+    private javax.swing.JTextField TXTnome;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -216,9 +214,5 @@ public class HomeAluno extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
