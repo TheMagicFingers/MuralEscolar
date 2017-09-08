@@ -129,12 +129,13 @@ public class LoginForm extends javax.swing.JFrame {
             Home nF = new Home();
             nF.setVisible(true);
             dispose();
-        }else if(controllerAluno.login(email, senha) == 1) {     
-            // SE FOR ADMIN CHAMA A HOME
-            Home nF = new Home();
+        }else if(controllerAluno.login(email, senha) == 1){     
+            // alterar home de aluno
+            HomeAluno nF = new HomeAluno();
             nF.setVisible(true);
             dispose();
         }else if(controllerProf.login(email, senha) == 1){
+            // alterar home de professor
             Home nF = new Home();
             nF.setVisible(true);
             dispose();
