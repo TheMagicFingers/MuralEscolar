@@ -5,6 +5,8 @@
  */
 package mural.escolar.controller;
 
+import java.util.List;
+import mural.escolar.negocio.Mural;
 import mural.escolar.persistencia.MuralDAOImp;
 import mural.escolar.negocio.Professor;
 /**
@@ -17,5 +19,8 @@ public class MuralController {
         return dao.inserir(professor, texto);
     }
     
-    
+    public List<Mural> listarUltimos(){
+        MuralDAOImp dao = new MuralDAOImp();
+        return dao.listarUltimos();
+    }
 }
