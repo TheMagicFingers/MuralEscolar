@@ -30,9 +30,9 @@ public class ProfessorDAOImp implements ProfessorDAO{
             int res = pst.executeUpdate();
             
             if(res > 0){
-                return "Usuário cadastrado com sucesso!";
+                return "Professor cadastrado com sucesso!";
             }else{
-                return "Erro ao cadastrar usuário";
+                return "Erro ao cadastrar professor";
             }
         }catch(SQLException e){
             return e.getMessage();

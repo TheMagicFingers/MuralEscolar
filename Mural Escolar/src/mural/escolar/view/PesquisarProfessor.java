@@ -12,7 +12,7 @@ import mural.escolar.negocio.Professor;
 
 /**
  *
- * @author Jandira Evalde
+ * @author Lucas Vieira
  */
 public class PesquisarProfessor extends javax.swing.JInternalFrame {
 
@@ -176,13 +176,17 @@ public class PesquisarProfessor extends javax.swing.JInternalFrame {
         ProfessorController controllerProfessor = new ProfessorController();
         professor = controllerProfessor.pesquisarProfessorPorEmail(TXTemailProf.getText());
         
-        model.addElement(professor.getEmail());
-        jTable1.getModel().setValueAt(professor.getNome(), 0, 0);
-        jTable1.getModel().setValueAt(professor.getEmail(), 0, 1);
-        jTable1.getModel().setValueAt(professor.getSiape(), 0, 2);
-        jTable1.getModel().setValueAt(professor.getCpf(), 0, 3);
+        if(professor != null){
+            model.addElement(professor.getEmail());
+            jTable1.getModel().setValueAt(professor.getNome(), 0, 0);
+            jTable1.getModel().setValueAt(professor.getEmail(), 0, 1);
+            jTable1.getModel().setValueAt(professor.getSiape(), 0, 2);
+            jTable1.getModel().setValueAt(professor.getCpf(), 0, 3);
+        }else{
+            JOptionPane.showMessageDialog(null, "Email não encontrado!");
+        }
         // coloca as informacoes no TXAinformacoes e imprime:
-        PainelBusca.setVisible(true);
+        //PainelBusca.setVisible(true);  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -195,7 +199,6 @@ public class PesquisarProfessor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ProfessorController controllerProfessor = new ProfessorController();
         JOptionPane.showMessageDialog(null, controllerProfessor.excluir(professor));
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

@@ -6,6 +6,9 @@
 package mural.escolar.view;
 
 import javax.swing.JOptionPane;
+import mural.escolar.controller.AlunoController;
+import mural.escolar.controller.ProfessorController;
+import mural.escolar.negocio.Aluno;
 import mural.escolar.negocio.Professor;
 
 /**
@@ -25,13 +28,6 @@ public class AlterarProfessor extends javax.swing.JFrame {
         TXTemailProf.setText(professor.getEmail());
         TXTsiabi.setText(professor.getSiape());
     }
-
-       /*
-    CODIGO GERADO QUE ESTAVA DANDO ERRO
-    AlterarProfessor(Professor professor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    */
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -139,7 +135,16 @@ public class AlterarProfessor extends javax.swing.JFrame {
         if (reply == JOptionPane.YES_OPTION)
         {
             // Incrementar Banco de Dados
-            JOptionPane.showMessageDialog(null, "Cadastrado alterado com sucesso");
+            Professor prof = new Professor();
+            ProfessorController controllerProf = new ProfessorController();
+            
+            prof.setNome(TXTnomeProf.getText());
+            prof.setEmail(TXTemailProf.getText());
+            prof.setSiape(TXTsiabi.getText());
+            prof.setCpf(TXTcpf.getText());
+            
+            JOptionPane.showMessageDialog(null, controllerProf.alterar(prof));
+            dispose();
         }
     }//GEN-LAST:event_BTNcadastroActionPerformed
 
