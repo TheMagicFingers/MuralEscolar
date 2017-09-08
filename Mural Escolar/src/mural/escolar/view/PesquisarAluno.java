@@ -6,6 +6,7 @@
 package mural.escolar.view;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.negocio.Aluno;
 
@@ -113,7 +114,7 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
                 .addGap(275, 275, 275)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelBuscaLayout.setVerticalGroup(
@@ -194,6 +195,9 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        AlunoController controllerAluno = new AlunoController();
+        JOptionPane.showMessageDialog(null, controllerAluno.excluir(aluno));
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
