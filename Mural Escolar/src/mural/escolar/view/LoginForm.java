@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.controller.ProfessorController;
 import mural.escolar.negocio.Aluno;
-import mural.escolar.negocio.Professor;
 
 /**
  *

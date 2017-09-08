@@ -21,12 +21,9 @@ public class HomeAluno extends javax.swing.JFrame {
     public HomeAluno(Aluno a) {
         initComponents();
         this.aluno = a;
-<<<<<<< HEAD
         TXTnome.setText(aluno.getNome());
+        //jTextField1.setText(a.getNome());
         
-=======
-        jTextField1.setText(a.getNome());
->>>>>>> 2af81f409491decd1a792731277505ce1cf08132
     }
 
     /**
