@@ -19,8 +19,11 @@ public class HomeAluno extends javax.swing.JFrame {
     /**
      * Creates new form HomeAluno
      */
-    public HomeAluno() {
+    Aluno aluno;
+    
+    public HomeAluno(Aluno a) {
         initComponents();
+        this.aluno = a;
     }
 
     /**
@@ -199,7 +202,7 @@ public class HomeAluno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeAluno().setVisible(true);
+                //new HomeAluno().setVisible(true);
             }
         });
     }
