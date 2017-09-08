@@ -192,7 +192,6 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new AlterarAluno(aluno).setVisible(true);
-        
         //Aluno aluno = jTable1.convertRowIndexToModel(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
