@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/gustavo/Documents/GitHub/MuralEscolar/Mural%20Escolar/src/mural/escolar/view/PesquisarAluno.java</file>
             <file>file:/C:/Users/gustavo/Documents/GitHub/MuralEscolar/Mural%20Escolar/src/mural/escolar/view/LoginForm.java</file>
@@ -9,5 +10,8 @@
             <file>file:/C:/Users/gustavo/Documents/GitHub/MuralEscolar/Mural%20Escolar/src/mural/escolar/view/AlterarProfessor.java</file>
             <file>file:/C:/Users/gustavo/Documents/GitHub/MuralEscolar/Mural%20Escolar/src/mural/escolar/view/Home.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> fd6dec82f736df0f8df9181a6590a095520a8934
     </open-files>
 </project-private>

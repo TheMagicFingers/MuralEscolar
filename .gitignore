@@ -54,5 +54,10 @@ Mural Escolar/build/built-jar.properties
 *.properties
 *.db
 Mural Escolar/build/built-jar.properties
+<<<<<<< HEAD
 Mural Escolar/build/built-jar.properties
 Mural Escolar/nbproject/private/private.properties
+=======
+Mural Escolar/nbproject/private/private.xml
+>>>>>>> fd6dec82f736df0f8df9181a6590a095520a8934
+Mural Escolar/nbproject/private/private.xml
