@@ -17,4 +17,5 @@ public class MuralController {
         return dao.inserir(professor, texto);
     }
     
+    
 }
