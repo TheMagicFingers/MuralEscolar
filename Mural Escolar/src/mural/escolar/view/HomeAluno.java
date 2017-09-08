@@ -5,6 +5,9 @@
  */
 package mural.escolar.view;
 
+import mural.escolar.controller.AlunoController;
+import mural.escolar.negocio.Aluno;
+
 /**
  *
  * @author Jandira Evalde
@@ -46,6 +49,11 @@ public class HomeAluno extends javax.swing.JFrame {
         PainelAluno.setBackground(new java.awt.Color(204, 204, 204));
 
         jTextField1.setEditable(false);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -148,6 +156,13 @@ public class HomeAluno extends javax.swing.JFrame {
         PainelAluno.add(telaAltAluno);
         telaAltAluno.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+        AlunoController alunoController = new AlunoController();
+        
+        //Aluno aluno = alunoController.pesquisarAlunoPorEmail(email);        
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
