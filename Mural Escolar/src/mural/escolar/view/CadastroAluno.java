@@ -37,11 +37,11 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TXTmatricula = new javax.swing.JTextField();
-        TXTcurso = new javax.swing.JTextField();
         TXTnomeAluno = new javax.swing.JTextField();
         TXTemailAluno = new javax.swing.JTextField();
         BTNcadastro = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        TXTcurso = new javax.swing.JComboBox<>();
 
         setClosable(true);
 
@@ -66,6 +66,8 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Cadastrar um novo aluno");
+
+        TXTcurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ABI - Ciência da Computação", "Licenciatura em Física", "Eletromecânica" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,7 +99,7 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TXTnomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,7 +147,7 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
             
             aluno.setNome(TXTnomeAluno.getText());
             aluno.setEmail(TXTemailAluno.getText());
-            aluno.setCurso(TXTcurso.getText());
+            aluno.setCurso(TXTcurso.getSelectedItem().toString());
             aluno.setMatricula(TXTmatricula.getText());
             aluno.setSenha("padrao");
             
@@ -156,7 +158,7 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNcadastro;
-    private javax.swing.JTextField TXTcurso;
+    private javax.swing.JComboBox<String> TXTcurso;
     private javax.swing.JTextField TXTemailAluno;
     private javax.swing.JTextField TXTmatricula;
     private javax.swing.JTextField TXTnomeAluno;
