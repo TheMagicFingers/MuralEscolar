@@ -81,3 +81,5 @@ Mural Escolar/build/built-jar.properties
 *.properties
 *.properties
 *.properties
+*.properties
+*.db
