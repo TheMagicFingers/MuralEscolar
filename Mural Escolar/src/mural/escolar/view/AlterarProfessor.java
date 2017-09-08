@@ -10,7 +10,7 @@ import mural.escolar.negocio.Professor;
 
 /**
  *
- * @author Jandira Evalde
+ * @author Lucas Vieira
  */
 public class AlterarProfessor extends javax.swing.JFrame {
 
