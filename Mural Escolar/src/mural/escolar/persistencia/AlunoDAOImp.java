@@ -142,7 +142,7 @@ public class AlunoDAOImp implements AlunoDAO{
                 Aluno aluno = new Aluno();
                 aluno.setNome(rs.getString(2));
                 aluno.setEmail(rs.getString(3));
-                //aluno.setSenha(rs.getString(4));
+                aluno.setSenha(rs.getString(4));
                 aluno.setMatricula(rs.getString(5));
                 aluno.setCurso(rs.getString(6));
                 
@@ -157,4 +157,18 @@ public class AlunoDAOImp implements AlunoDAO{
         }
     }
     
+    @Override
+    public Integer login(String email, String senha){
+        Aluno aluno = pesquisarPorEmail(email);
+        if(aluno != null){
+            
+            if(aluno.getSenha().equals(senha)){
+                return 1;
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
+        }
+    }
 }

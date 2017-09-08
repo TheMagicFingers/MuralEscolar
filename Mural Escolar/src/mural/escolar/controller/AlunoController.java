@@ -36,4 +36,9 @@ public class AlunoController {
         AlunoDAOImp dao = new AlunoDAOImp();
         return dao.pesquisarPorEmail(email);
     }
+    
+    public Integer login(String email, String senha){
+        AlunoDAOImp dao = new AlunoDAOImp();
+        return dao.login(email, senha);
+    }
 }

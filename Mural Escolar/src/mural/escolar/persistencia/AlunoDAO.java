@@ -18,4 +18,5 @@ public interface AlunoDAO {
     public String excluir(Aluno p);
     public List<Aluno> listarTodos();
     public Aluno pesquisarPorEmail(String email);
+    public Integer login(String email, String senha);
 }

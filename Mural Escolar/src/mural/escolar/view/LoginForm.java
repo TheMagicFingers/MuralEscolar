@@ -1,6 +1,7 @@
 package mural.escolar.view;
 
 import javax.swing.JOptionPane;
+import mural.escolar.controller.AlunoController;
 
 /**
  *
@@ -118,14 +119,16 @@ public class LoginForm extends javax.swing.JFrame {
         
         // VERIFICAR EMAIL E SENHA 
         // chamar db
+        AlunoController controllerAluno = new AlunoController();
         
-        if(email.equals("lucas") &&  senha.equals("123")) {     
+        
+        if(controllerAluno.login(email, senha) == 1) {     
             // SE FOR ADMIN CHAMA A HOME
             Home nF = new Home();
             nF.setVisible(true);
             dispose();          
         }else {
-            JOptionPane.showMessageDialog(null, "Wrong password ");
+            JOptionPane.showMessageDialog(null, "Wrong password or email");
         }
         
     }//GEN-LAST:event_BTNloginActionPerformed
