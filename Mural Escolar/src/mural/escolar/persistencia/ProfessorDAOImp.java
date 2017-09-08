@@ -33,7 +33,7 @@ public class ProfessorDAOImp implements ProfessorDAO{
                 return "Usuário cadastrado com sucesso!";
             }else{
                 return "Erro ao cadastrar usuário";
-            }  
+            }
         }catch(SQLException e){
             return e.getMessage();
         }finally{
