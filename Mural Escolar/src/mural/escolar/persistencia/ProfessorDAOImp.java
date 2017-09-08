@@ -134,6 +134,7 @@ public class ProfessorDAOImp implements ProfessorDAO{
                 Professor professor = new Professor();
                 professor.setNome(rs.getString(2));
                 professor.setEmail(rs.getString(3));
+                professor.setSenha(rs.getString(4));
                 professor.setCpf(rs.getString(5));
                 professor.setSiape(rs.getString(6));
                 
@@ -145,6 +146,21 @@ public class ProfessorDAOImp implements ProfessorDAO{
             return null;
         }finally{
             SQLiteConnectionFactory.close(conn);
+        }
+    }
+
+    @Override
+    public Integer login(String email, String senha) {
+        Professor prof = pesquisarPorEmail(email);
+        if(prof != null){
+            
+            if(prof.getSenha().equals(senha)){
+                return 1;
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
         }
     }
     

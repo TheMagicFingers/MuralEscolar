@@ -2,6 +2,7 @@ package mural.escolar.view;
 
 import javax.swing.JOptionPane;
 import mural.escolar.controller.AlunoController;
+import mural.escolar.controller.ProfessorController;
 
 /**
  *
@@ -120,13 +121,17 @@ public class LoginForm extends javax.swing.JFrame {
         // VERIFICAR EMAIL E SENHA 
         // chamar db
         AlunoController controllerAluno = new AlunoController();
-        
+        ProfessorController controllerProf = new ProfessorController();
         
         if(controllerAluno.login(email, senha) == 1) {     
             // SE FOR ADMIN CHAMA A HOME
             Home nF = new Home();
             nF.setVisible(true);
-            dispose();          
+            dispose();
+        }else if(controllerProf.login(email, senha) == 1){
+            Home nF = new Home();
+            nF.setVisible(true);
+            dispose();
         }else {
             JOptionPane.showMessageDialog(null, "Wrong password or email");
         }

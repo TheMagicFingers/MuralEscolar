@@ -33,4 +33,9 @@ public class ProfessorController {
         ProfessorDAOImp dao = new ProfessorDAOImp();
         return dao.pesquisarPorEmail(email);
     }
+    
+    public Integer login(String email, String senha){
+        ProfessorDAOImp dao = new ProfessorDAOImp();
+        return dao.login(email, senha);
+    }
 }

@@ -13,4 +13,5 @@ public interface ProfessorDAO {
     public String excluir(Professor professor);
     public List<Professor> listarTodos();
     public Professor pesquisarPorEmail(String email);
+    public Integer login(String email, String senha);
 }
