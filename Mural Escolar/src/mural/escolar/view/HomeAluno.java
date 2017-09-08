@@ -19,7 +19,6 @@ public class HomeAluno extends javax.swing.JFrame {
      */
     public HomeAluno() {
         initComponents();
-        setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
     }
 
     /**

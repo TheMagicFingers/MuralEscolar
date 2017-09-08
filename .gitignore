@@ -73,3 +73,5 @@ Mural Escolar/build/built-jar.properties
 >>>>>>> 46eba4611d2369c5968dd26fc081bbcc00274a7d
 >>>>>>> dabd1e7e0119786ded73c1d79233a6e42ae5b8d5
 Mural Escolar/build/built-jar.properties
+*.properties
+*.properties
