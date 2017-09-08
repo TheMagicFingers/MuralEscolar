@@ -17,14 +17,22 @@ public class AlterarProfessor extends javax.swing.JFrame {
     /**
      * Creates new form AlterarProfessor
      */
-    public AlterarProfessor() {
+    //O CODIGO ERA PRA TER SIDO COLOCADO AQUI
+    public AlterarProfessor(Professor professor) {
         initComponents();
+        TXTnomeProf.setText(professor.getNome());
+        TXTcpf.setText(professor.getCpf());
+        TXTemailProf.setText(professor.getEmail());
+        TXTsiabi.setText(professor.getSiape());
     }
 
+       /*
+    CODIGO GERADO QUE ESTAVA DANDO ERRO
     AlterarProfessor(Professor professor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -165,7 +173,7 @@ public class AlterarProfessor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlterarProfessor().setVisible(true);
+                //new AlterarProfessor().setVisible(true);
             }
         });
     }
