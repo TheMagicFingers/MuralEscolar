@@ -11,6 +11,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
     }
 
     /**
