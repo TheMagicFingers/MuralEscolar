@@ -5,7 +5,6 @@
  */
 package mural.escolar.view;
 
-import java.util.ArrayList;
 import java.util.List;
 import mural.escolar.controller.MuralController;
 import mural.escolar.negocio.Aluno;
