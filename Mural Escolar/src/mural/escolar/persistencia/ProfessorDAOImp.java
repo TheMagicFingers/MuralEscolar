@@ -52,7 +52,7 @@ public class ProfessorDAOImp implements ProfessorDAO{
             pst.setString(2, professor.getEmail());
             pst.setString(3, professor.getCpf());
             pst.setString(4, professor.getSiape());
-            
+            pst.setString(5, professor.getEmail());
             int res = pst.executeUpdate();
             
             if(res > 0){
