@@ -102,6 +102,7 @@ public class ProfessorDAOImp implements ProfessorDAO{
             if(listaProf != null){
                 while(listaProf.next()){
                     Professor professor = new Professor();
+                    professor.setId(listaProf.getInt(0));
                     professor.setNome(listaProf.getString(1));
                     professor.setEmail(listaProf.getString(2));
                     professor.setCpf(listaProf.getString(4));
@@ -132,6 +133,7 @@ public class ProfessorDAOImp implements ProfessorDAO{
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
                 Professor professor = new Professor();
+                professor.setId(rs.getInt(1));
                 professor.setNome(rs.getString(2));
                 professor.setEmail(rs.getString(3));
                 professor.setSenha(rs.getString(4));
