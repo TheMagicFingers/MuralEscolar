@@ -36,9 +36,9 @@ public class AlunoDAOImp implements AlunoDAO{
             int res = pst.executeUpdate();
             
             if(res > 0){
-                return "Usuário cadastrado com sucesso!";
+                return "Aluno cadastrado com sucesso!";
             }else{
-                return "erro ao inserir!";
+                return "Erro ao cadastrar aluno";
             }
         }catch(SQLException e){
             return e.getMessage();
@@ -85,7 +85,7 @@ public class AlunoDAOImp implements AlunoDAO{
             pst.setString(1, aluno.getEmail());
             int res = pst.executeUpdate();
             if(res > 0){
-                return "Usuario " + aluno.getNome() +" excluido com sucesso!";
+                return "Aluno " + aluno.getNome() +" excluido com sucesso!";
             }else{
                 return "Erro ao excluir!";
             }

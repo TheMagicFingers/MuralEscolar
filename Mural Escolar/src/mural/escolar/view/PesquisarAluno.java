@@ -200,7 +200,6 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         AlunoController controllerAluno = new AlunoController();
         JOptionPane.showMessageDialog(null, controllerAluno.excluir(aluno));
-        
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

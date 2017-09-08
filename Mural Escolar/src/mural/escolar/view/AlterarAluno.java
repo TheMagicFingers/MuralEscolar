@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
 package mural.escolar.view;
-
 import javax.swing.JOptionPane;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.negocio.Aluno;
 
 /**
  *
- * @author Jandira Evalde
+ * @author Lucas Vieira
  */
 public class AlterarAluno extends javax.swing.JFrame {
 
