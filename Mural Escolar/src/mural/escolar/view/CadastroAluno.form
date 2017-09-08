@@ -70,7 +70,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="TXTnomeAluno" min="-2" pref="36" max="-2" attributes="0"/>
@@ -128,8 +128,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="TXTmatricula">
         </Component>
-        <Component class="javax.swing.JTextField" name="TXTcurso">
-        </Component>
         <Component class="javax.swing.JTextField" name="TXTnomeAluno">
         </Component>
         <Component class="javax.swing.JTextField" name="TXTemailAluno">
@@ -149,6 +147,20 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cadastrar um novo aluno"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="TXTcurso">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="ABI - Ci&#xea;ncia da Computa&#xe7;&#xe3;o"/>
+                <StringItem index="1" value="Licenciatura em F&#xed;sica"/>
+                <StringItem index="2" value="Eletromec&#xe2;nica"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
