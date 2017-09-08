@@ -123,7 +123,13 @@ public class LoginForm extends javax.swing.JFrame {
         AlunoController controllerAluno = new AlunoController();
         ProfessorController controllerProf = new ProfessorController();
         
-        if(controllerAluno.login(email, senha) == 1) {     
+        String emailAdmin = "admin@gmail.com";
+        String senhaAdmin = "123456";
+        if(emailAdmin.equals(TXTemail.getText()) && senhaAdmin.equals(TXTsenha.getText())){
+            Home nF = new Home();
+            nF.setVisible(true);
+            dispose();
+        }else if(controllerAluno.login(email, senha) == 1) {     
             // SE FOR ADMIN CHAMA A HOME
             Home nF = new Home();
             nF.setVisible(true);
@@ -133,7 +139,7 @@ public class LoginForm extends javax.swing.JFrame {
             nF.setVisible(true);
             dispose();
         }else {
-            JOptionPane.showMessageDialog(null, "Wrong password or email");
+            JOptionPane.showMessageDialog(null, "E-mail or password incorrect");
         }
         
     }//GEN-LAST:event_BTNloginActionPerformed
