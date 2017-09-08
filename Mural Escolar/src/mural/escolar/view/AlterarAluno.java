@@ -140,7 +140,7 @@ public class AlterarAluno extends javax.swing.JFrame {
             aluno.setCurso(TXTcurso.getSelectedItem().toString());
             
             JOptionPane.showMessageDialog(null, controllerAluno.alterar(aluno));
-
+            dispose();
         }
     }//GEN-LAST:event_BTNcadastroActionPerformed
 
