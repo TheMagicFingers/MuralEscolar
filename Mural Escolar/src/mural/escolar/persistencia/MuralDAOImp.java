@@ -7,7 +7,9 @@ package mural.escolar.persistencia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import mural.escolar.controller.SQLiteConnectionFactory;
 import mural.escolar.negocio.Mural;
@@ -42,10 +44,35 @@ public class MuralDAOImp implements MuralDAO{
         }
         
     }
-
+    
     @Override
-    public List<Mural> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Mural> listarUltimos() {
+        String sql = "select * from mural order by id desc limit 3";
+        Connection conn = SQLiteConnectionFactory.getConnection();
+        List<Mural> lista = new ArrayList<>();
+        
+        try{
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet listaMural = pst.executeQuery();
+            
+            if(listaMural != null){
+                while(listaMural.next()){
+                    Mural mural = new Mural();
+                    mural.setTexto(listaMural.getString(1));
+                    mural.setId_prof(listaMural.getInt(2));
+                    
+                    lista.add(mural);
+                }
+                
+                return lista;
+            }else{
+                return null;
+            }
+        }catch(SQLException e){
+            return null;
+        }finally{
+            SQLiteConnectionFactory.close(conn);
+        }
     }
     
 }

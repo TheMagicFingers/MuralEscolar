@@ -14,6 +14,6 @@ import mural.escolar.negocio.Mural;
  */
 public interface MuralDAO {
     public String inserir(Professor professor, String texto);
-    public List<Mural> listarTodos();
+    public List<Mural> listarUltimos();
     
 }
