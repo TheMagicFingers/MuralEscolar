@@ -6,6 +6,7 @@
 package mural.escolar.view;
 
 import javax.swing.JOptionPane;
+import mural.escolar.negocio.Professor;
 
 /**
  *
@@ -18,6 +19,10 @@ public class AlterarProfessor extends javax.swing.JFrame {
      */
     public AlterarProfessor() {
         initComponents();
+    }
+
+    AlterarProfessor(Professor professor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

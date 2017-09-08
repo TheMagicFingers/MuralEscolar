@@ -29,7 +29,7 @@ public class ProfessorController {
         return dao.listarTodos();
     }
     
-    public Professor pesquisarAlunoPorEmail(String email){
+    public Professor pesquisarProfessorPorEmail(String email){
         ProfessorDAOImp dao = new ProfessorDAOImp();
         return dao.pesquisarPorEmail(email);
     }
