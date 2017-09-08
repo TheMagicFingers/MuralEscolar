@@ -50,7 +50,7 @@ public class AlunoDAOImp implements AlunoDAO{
     @Override
     public String alterar(Aluno aluno) {
         
-        String sql = "update aluno set nome=?,matricula=?,email=?, curso=? where email=?";
+        String sql = "update aluno set nome=?,matricula=?,email=?,curso=?,senha=? where email=?";
         Connection conn = SQLiteConnectionFactory.getConnection();
         try{
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -58,7 +58,8 @@ public class AlunoDAOImp implements AlunoDAO{
             pst.setString(2, aluno.getMatricula());
             pst.setString(3, aluno.getEmail());
             pst.setString(4, aluno.getCurso());
-            pst.setString(5, aluno.getEmail());
+            pst.setString(5, aluno.getSenha());
+            pst.setString(6, aluno.getEmail());
             
             int res = pst.executeUpdate();
             

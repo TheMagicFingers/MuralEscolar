@@ -108,8 +108,7 @@ public class AlterarSenhaAluno extends javax.swing.JInternalFrame {
         Aluno al = alunoController.pesquisarAlunoPorEmail(aluno.getEmail());
         if(TXTsenhaAtual.getText().equals(al.getSenha())){
             al.setSenha(TXTnovaSenha.getText());
-            alunoController.alterar(al);
-            JOptionPane.showMessageDialog(null, "Senha alterada com sucesso");
+            JOptionPane.showMessageDialog(null, alunoController.alterar(al));
         }else{
             JOptionPane.showMessageDialog(null, "Senha incorreta. Tente novamente");
         }
