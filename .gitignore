@@ -7,5 +7,18 @@ Mural Escolar/src/mural/escolar/view/ExcluirAluno.form
 Mural Escolar/src/mural/escolar/view/ExcluirAluno.java
 Mural Escolar/config/muralEscolar.db
 Mural Escolar/build/built-jar.properties
+<<<<<<< HEAD
+Mural Escolar/build/built-jar.properties
+Mural Escolar/config/muralEscolar.db
+Mural Escolar/config/muralEscolar.db
+Mural Escolar/build/built-jar.properties
+Mural Escolar/config/muralEscolar.db
+Mural Escolar/build/built-jar.properties
+=======
 *.properties
 *.db
+>>>>>>> 44b61e92770aa1b1a9712567375b337156e34dcb
+Mural Escolar/build/built-jar.properties
+Mural Escolar/config/muralEscolar.db
+*.properties
+*.form
