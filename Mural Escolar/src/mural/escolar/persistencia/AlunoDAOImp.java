@@ -50,7 +50,7 @@ public class AlunoDAOImp implements AlunoDAO{
     @Override
     public String alterar(Aluno aluno) {
         
-        String sql = "update aluno set nome=?,matricula=?,email=?, curso=? where email=?";
+        String sql = "update aluno set nome=?,matricula=?,email=?,curso=? where email=?";
         Connection conn = SQLiteConnectionFactory.getConnection();
         try{
             PreparedStatement pst = conn.prepareStatement(sql);
