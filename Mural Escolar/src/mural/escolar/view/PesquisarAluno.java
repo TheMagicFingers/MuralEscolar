@@ -179,17 +179,23 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
         AlunoController controllerAluno = new AlunoController();
         aluno = controllerAluno.pesquisarAlunoPorEmail(TXTemailAluno.getText());
         
-        model.addElement(aluno.getEmail());
-        jTable1.getModel().setValueAt(aluno.getNome(), 0, 0);
-        jTable1.getModel().setValueAt(aluno.getEmail(), 0, 1);
-        jTable1.getModel().setValueAt(aluno.getMatricula(), 0, 2);
-        jTable1.getModel().setValueAt(aluno.getCurso(), 0, 3);
+        if(aluno != null){
+            model.addElement(aluno.getEmail());
+            jTable1.getModel().setValueAt(aluno.getNome(), 0, 0);
+            jTable1.getModel().setValueAt(aluno.getEmail(), 0, 1);
+            jTable1.getModel().setValueAt(aluno.getMatricula(), 0, 2);
+            jTable1.getModel().setValueAt(aluno.getCurso(), 0, 3);
+        }else{
+            JOptionPane.showMessageDialog(null, "Email não encontrado!");
+        }
+        
         //PainelBusca.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new AlterarAluno(aluno).setVisible(true);
+        
         //Aluno aluno = jTable1.convertRowIndexToModel(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
