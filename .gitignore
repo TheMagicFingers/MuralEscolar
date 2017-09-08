@@ -47,3 +47,5 @@ Mural Escolar/build/built-jar.properties
 Mural Escolar/build/built-jar.properties
 *.properties
 *.properties
+*.properties
+*.db
