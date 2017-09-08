@@ -25,18 +25,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="132" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="TXTnomeAluno" alignment="0" min="-2" pref="425" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="BTNcadastro" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="TXTemailAluno" alignment="0" min="-2" pref="425" max="-2" attributes="0"/>
+                          <Component id="TXTnomeAluno" alignment="0" pref="425" max="32767" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="BTNcadastro" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="TXTemailAluno" alignment="0" pref="425" max="32767" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TXTmatricula" alignment="0" min="-2" pref="425" max="-2" attributes="0"/>
+                          <Component id="TXTmatricula" alignment="0" pref="425" max="32767" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TXTcurso" alignment="0" min="-2" pref="425" max="-2" attributes="0"/>
+                          <Component id="TXTcurso" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                   </Group>
@@ -67,9 +65,9 @@
               <Component id="TXTemailAluno" min="-2" pref="36" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="TXTcurso" min="-2" pref="36" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="BTNcadastro" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
@@ -123,7 +121,19 @@
         <Property name="text" type="java.lang.String" value="Curso:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TXTcurso">
+    <Component class="javax.swing.JComboBox" name="TXTcurso">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="ABI - Ci&#xea;ncia da Computa&#xe7;&#xe3;o"/>
+            <StringItem index="1" value="Licenciatura em F&#xed;sica"/>
+            <StringItem index="2" value="Eletromec&#xe2;nica"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="BTNcadastro">
       <Properties>

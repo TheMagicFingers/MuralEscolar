@@ -21,7 +21,7 @@ public class AlterarAluno extends javax.swing.JFrame {
     public AlterarAluno(Aluno aluno) {
         initComponents();
         TXTemailAluno.setText(aluno.getEmail());
-        TXTcurso.setText(aluno.getCurso());
+        TXTcurso.setSelectedItem(aluno.getCurso());
         TXTnomeAluno.setText(aluno.getNome());
         TXTmatricula.setText(aluno.getMatricula());
     }
@@ -43,7 +43,7 @@ public class AlterarAluno extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         TXTemailAluno = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        TXTcurso = new javax.swing.JTextField();
+        TXTcurso = new javax.swing.JComboBox<>();
         BTNcadastro = new javax.swing.JButton();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -61,6 +61,8 @@ public class AlterarAluno extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Curso:");
 
+        TXTcurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ABI - Ciência da Computação", "Licenciatura em Física", "Eletromecânica" }));
+
         BTNcadastro.setText("Alterar");
         BTNcadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,17 +79,16 @@ public class AlterarAluno extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 132, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(TXTnomeAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(BTNcadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(TXTemailAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TXTnomeAluno, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addComponent(BTNcadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TXTemailAluno, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                             .addComponent(jLabel3)
-                            .addComponent(TXTmatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TXTmatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                             .addComponent(jLabel2)
-                            .addComponent(TXTcurso, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TXTcurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(115, 115, 115))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -112,9 +113,9 @@ public class AlterarAluno extends javax.swing.JFrame {
                 .addComponent(TXTemailAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TXTcurso, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addComponent(BTNcadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -136,7 +137,7 @@ public class AlterarAluno extends javax.swing.JFrame {
             aluno.setNome(TXTnomeAluno.getText());
             aluno.setEmail(TXTemailAluno.getText());
             aluno.setMatricula(TXTmatricula.getText());
-            aluno.setCurso(TXTcurso.getText());
+            aluno.setCurso(TXTcurso.getSelectedItem().toString());
             
             JOptionPane.showMessageDialog(null, controllerAluno.alterar(aluno));
 
@@ -183,7 +184,7 @@ public class AlterarAluno extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNcadastro;
-    private javax.swing.JTextField TXTcurso;
+    private javax.swing.JComboBox<String> TXTcurso;
     private javax.swing.JTextField TXTemailAluno;
     private javax.swing.JTextField TXTmatricula;
     private javax.swing.JTextField TXTnomeAluno;
