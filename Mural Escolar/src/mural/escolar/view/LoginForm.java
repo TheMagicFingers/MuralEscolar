@@ -3,6 +3,8 @@ package mural.escolar.view;
 import javax.swing.JOptionPane;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.controller.ProfessorController;
+import mural.escolar.negocio.Aluno;
+import mural.escolar.negocio.Professor;
 
 /**
  *
@@ -131,7 +133,9 @@ public class LoginForm extends javax.swing.JFrame {
             dispose();
         }else if(controllerAluno.login(email, senha) == 1){     
             // alterar home de aluno
-            HomeAluno nf = new HomeAluno();
+            Aluno aluno = controllerAluno.pesquisarAlunoPorEmail(email);
+            
+            HomeAluno nf = new HomeAluno(aluno);
             nf.setVisible(true);
             dispose();
         }else if(controllerProf.login(email, senha) == 1){
