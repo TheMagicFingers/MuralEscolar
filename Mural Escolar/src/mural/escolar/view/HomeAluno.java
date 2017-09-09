@@ -5,7 +5,11 @@
  */
 package mural.escolar.view;
 
+import java.util.ArrayList;
+import java.util.List;
+import mural.escolar.controller.MuralController;
 import mural.escolar.negocio.Aluno;
+import mural.escolar.negocio.Mural;
 
 /**
  *
@@ -22,8 +26,14 @@ public class HomeAluno extends javax.swing.JFrame {
         initComponents();
         this.aluno = a;
         TXTnome.setText(aluno.getNome());
-        //jTextField1.setText(a.getNome());
         
+        List<Mural> mensg = new ArrayList<>(); 
+        MuralController mural = new MuralController();
+        mensg = mural.listarUltimos();
+        
+        /*Mural m = new Mural();
+        m = (Mural) mural.listarUltimos();
+        System.out.println(m);*/
     }
 
     /**

@@ -83,5 +83,12 @@ Mural Escolar/build/built-jar.properties
 *.properties
 *.properties
 *.db
+<<<<<<< HEAD
+Mural Escolar/build/built-jar.properties
+Mural Escolar/config/muralEscolar.db
+=======
+*.db
+*.properties
+>>>>>>> 1fcbbbfbebc9988490a0085413d0427de0e95795
 Mural Escolar/build/built-jar.properties
 Mural Escolar/config/muralEscolar.db
