@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.controller.ProfessorController;
 import mural.escolar.negocio.Aluno;
+import mural.escolar.negocio.Professor;
 
 /**
  *
@@ -139,8 +140,9 @@ public class LoginForm extends javax.swing.JFrame {
             dispose();
         }else if(controllerProf.login(email, senha) == 1){
             // alterar home de professor
-            Home nF = new Home();
-            nF.setVisible(true);
+            Professor professor = controllerProf.pesquisarProfessorPorEmail(email);
+            HomeProfessor np = new HomeProfessor(professor);
+            np.setVisible(true);
             dispose();
         }else {
             JOptionPane.showMessageDialog(null, "E-mail or password incorrect");

@@ -43,7 +43,7 @@ public class ProfessorDAOImp implements ProfessorDAO{
 
     @Override
     public String alterar(Professor professor) {
-        String sql = "update professor set nome=?, email=?, cpf=?, siape=? where email=?";
+        String sql = "update professor set nome=?, email=?, cpf=?, siape=?, senha=? where email=?";
         Connection conn = SQLiteConnectionFactory.getConnection();
         
         try{
@@ -52,7 +52,8 @@ public class ProfessorDAOImp implements ProfessorDAO{
             pst.setString(2, professor.getEmail());
             pst.setString(3, professor.getCpf());
             pst.setString(4, professor.getSiape());
-            pst.setString(5, professor.getEmail());
+            pst.setString(5, professor.getSenha());
+            pst.setString(6, professor.getEmail());
             int res = pst.executeUpdate();
             
             if(res > 0){
