@@ -27,9 +27,27 @@ public class HomeAluno extends javax.swing.JFrame {
         this.aluno = a;
         TXTnome.setText(aluno.getNome());
         
-        List<Mural> mensg = new ArrayList<>(); 
         MuralController mural = new MuralController();
-        mensg = mural.listarUltimos();
+        List<Mural> mensg = mural.listarUltimos(); 
+        //mensg = mural.listarUltimos();
+        //System.out.println(mural.);
+        
+        if(mensg != null ){
+            for(int i=0;i<3;i++){
+                Mural m = mensg.get(i);
+                switch (i) {
+                    case 0:
+                        TXTarea1.setText(m.getTexto());
+                        break;
+                    case 1:
+                        TXTarea2.setText(m.getTexto());
+                        break;
+                    default:
+                        TXTarea3.setText(m.getTexto());
+                        break;
+                }
+            }
+        }
         
         /*Mural m = new Mural();
         m = (Mural) mural.listarUltimos();

@@ -47,7 +47,7 @@ public class MuralDAOImp implements MuralDAO{
     
     @Override
     public List<Mural> listarUltimos() {
-        String sql = "select * from mural order by id desc limit 3";
+        String sql = "select * from mural order by id desc limit 3;";
         Connection conn = SQLiteConnectionFactory.getConnection();
         List<Mural> lista = new ArrayList<>();
         
@@ -58,9 +58,8 @@ public class MuralDAOImp implements MuralDAO{
             if(listaMural != null){
                 while(listaMural.next()){
                     Mural mural = new Mural();
-                    mural.setTexto(listaMural.getString(1));
-                    mural.setId_prof(listaMural.getInt(2));
-                    
+                    mural.setTexto(listaMural.getString(2));
+                    mural.setId_prof(listaMural.getInt(3));
                     lista.add(mural);
                 }
                 
