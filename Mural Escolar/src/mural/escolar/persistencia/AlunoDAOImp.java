@@ -51,6 +51,7 @@ public class AlunoDAOImp implements AlunoDAO{
     public String alterar(Aluno aluno) {
         String sql = "update aluno set nome=?,matricula=?,email=?,curso=?,senha=? where email=?";
         Connection conn = SQLiteConnectionFactory.getConnection();
+        System.out.println(">>>>>>>>Senha: " + aluno.getSenha());
         try{
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, aluno.getNome());

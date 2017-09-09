@@ -21,12 +21,14 @@ public class AlterarProfessor extends javax.swing.JFrame {
      * Creates new form AlterarProfessor
      */
     //O CODIGO ERA PRA TER SIDO COLOCADO AQUI
+    String senha;
     public AlterarProfessor(Professor professor) {
         initComponents();
         TXTnomeProf.setText(professor.getNome());
         TXTcpf.setText(professor.getCpf());
         TXTemailProf.setText(professor.getEmail());
         TXTsiabi.setText(professor.getSiape());
+        senha = professor.getSenha();
     }
     
     /**
@@ -142,7 +144,7 @@ public class AlterarProfessor extends javax.swing.JFrame {
             prof.setEmail(TXTemailProf.getText());
             prof.setSiape(TXTsiabi.getText());
             prof.setCpf(TXTcpf.getText());
-            
+            prof.setSenha(senha);
             JOptionPane.showMessageDialog(null, controllerProf.alterar(prof));
             dispose();
         }

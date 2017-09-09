@@ -16,13 +16,17 @@ public class AlterarAluno extends javax.swing.JFrame {
 
     /**
      * Creates new form AlterarAluno
+     * @param aluno
      */
+    String senha;
+    
     public AlterarAluno(Aluno aluno) {
         initComponents();
         TXTemailAluno.setText(aluno.getEmail());
         TXTcurso.setSelectedItem(aluno.getCurso());
         TXTnomeAluno.setText(aluno.getNome());
         TXTmatricula.setText(aluno.getMatricula());
+        senha = aluno.getSenha();
     }
 
     /**
@@ -136,8 +140,9 @@ public class AlterarAluno extends javax.swing.JFrame {
             aluno.setNome(TXTnomeAluno.getText());
             aluno.setEmail(TXTemailAluno.getText());
             aluno.setMatricula(TXTmatricula.getText());
+            aluno.setSenha(aluno.getSenha());
             aluno.setCurso(TXTcurso.getSelectedItem().toString());
-            
+            aluno.setSenha(senha);
             JOptionPane.showMessageDialog(null, controllerAluno.alterar(aluno));
             dispose();
         }

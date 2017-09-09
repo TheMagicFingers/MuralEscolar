@@ -6,6 +6,8 @@
 package mural.escolar.view;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import mural.escolar.controller.MuralController;
 import mural.escolar.negocio.Aluno;
 import mural.escolar.negocio.Mural;
@@ -20,12 +22,30 @@ public class HomeAluno extends javax.swing.JFrame {
      * Creates new form HomeAluno
      */
     Aluno aluno;
+    Timer timer = new Timer();
     
     public HomeAluno(Aluno a) {
         initComponents();
         this.aluno = a;
         TXTnome.setText(aluno.getNome());
         
+        rotinaAtualizarNota();
+        /*Mural m = new Mural();
+        m = (Mural) mural.listarUltimos();
+        System.out.println(m);*/
+    }
+    
+    public void rotinaAtualizarNota(){
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                //System.out.println("huaehuaheuaheuah");
+                atualizarNota();
+            }
+        }, 1000,1000);
+    }
+    
+    public void atualizarNota(){
         MuralController mural = new MuralController();
         List<Mural> mensg = mural.listarUltimos(); 
         //mensg = mural.listarUltimos();
@@ -47,12 +67,7 @@ public class HomeAluno extends javax.swing.JFrame {
                 }
             }
         }
-        
-        /*Mural m = new Mural();
-        m = (Mural) mural.listarUltimos();
-        System.out.println(m);*/
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,6 +202,7 @@ public class HomeAluno extends javax.swing.JFrame {
         AlterarSenhaAluno telaAltAluno = new AlterarSenhaAluno(aluno);
         PainelAluno.add(telaAltAluno);
         telaAltAluno.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void TXTnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXTnomeActionPerformed
