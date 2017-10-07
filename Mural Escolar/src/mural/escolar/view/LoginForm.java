@@ -1,5 +1,8 @@
 package mural.escolar.view;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.controller.ProfessorController;
@@ -36,6 +39,7 @@ public class LoginForm extends javax.swing.JFrame {
         BTNforgotPass = new javax.swing.JButton();
         TXTsenha = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
+        BTNCadastro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -60,6 +64,16 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo2.png"))); // NOI18N
 
+        BTNCadastro.setText("Novo? Clique aqui para se cadastrar");
+        BTNCadastro.setBorder(null);
+        BTNCadastro.setBorderPainted(false);
+        BTNCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BTNCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelLoginLayout = new javax.swing.GroupLayout(PainelLogin);
         PainelLogin.setLayout(PainelLoginLayout);
         PainelLoginLayout.setHorizontalGroup(
@@ -77,7 +91,8 @@ public class LoginForm extends javax.swing.JFrame {
                             .addComponent(LBLsenha)
                             .addComponent(TXTsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BTNlogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BTNforgotPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(BTNforgotPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BTNCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         PainelLoginLayout.setVerticalGroup(
@@ -85,19 +100,21 @@ public class LoginForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLoginLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel2)
-                .addGap(31, 31, 31)
+                .addGap(2, 2, 2)
                 .addComponent(LBLemail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TXTemail, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LBLsenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TXTsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BTNlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(BTNCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BTNforgotPass, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,6 +167,19 @@ public class LoginForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BTNloginActionPerformed
 
+    private void BTNCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCadastroActionPerformed
+        CadastroAlunoNovo telaCadAlunoNovo = new CadastroAlunoNovo();
+        telaCadAlunoNovo.setVisible(true);
+        telaCadAlunoNovo.setTitle("Formulário de Cadastro");
+        telaCadAlunoNovo.setFocusable(true);
+ 
+        
+        //ImageIcon icone = new ImageIcon("/imagens/logo1.png"); not working
+        //telaCadAlunoNovo.setIconImage(icone);
+        dispose();
+        
+    }//GEN-LAST:event_BTNCadastroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -187,6 +217,7 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTNCadastro;
     private javax.swing.JButton BTNforgotPass;
     private javax.swing.JButton BTNlogin;
     private javax.swing.JLabel LBLemail;
