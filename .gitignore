@@ -90,8 +90,11 @@ Mural Escolar/config/muralEscolar.db
 *.db
 *.properties
 >>>>>>> 1fcbbbfbebc9988490a0085413d0427de0e95795
-Mural Escolar/build/built-jar.properties
+
 Mural Escolar/config/muralEscolar.db
 *.properties
 *.db
 Mural Escolar/nbproject/private/private.properties
+git rm --checked Mural Escolar/build/built-jar.properties
+git rm --checked Mural Escolar/nbproject/private/private.xml
+git rm --checked Mural Escolar/nbproject/private/private.properties
