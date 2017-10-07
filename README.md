@@ -30,7 +30,9 @@ Partes do programa ainda não implementadas porém previstas no projeto.
  
 **Importante**
 
- 1. Sistema de encriptação de senhas no banco de dados.(Francisco - 10% Ready)
+ 1. Sistema de encriptação de senhas no banco de dados.(Francisco - 50% Ready // O algoritmo está pronto só falta implementar ao
+ 
+  banco de dados).
  
  2. Otimizar o uso de threads no programa.
  
