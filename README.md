@@ -36,7 +36,7 @@ Partes do programa ainda não implementadas porém previstas no projeto.
  
  2. Otimizar o uso de threads no programa.
  
- 3. Sistema de cadastro de usuários novos (sem ser já estando logado)
+ 3. Sistema de cadastro de usuários novos (sem ser já estando logado)(Francisco)
  
  4. Sistema de recuperação de senhas
  
