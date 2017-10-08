@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import mural.escolar.controller.AdminController;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.controller.ProfessorController;
 import mural.escolar.negocio.Aluno;
@@ -147,16 +148,18 @@ public class LoginForm extends javax.swing.JFrame {
         // chamar db
         AlunoController controllerAluno = new AlunoController();
         ProfessorController controllerProf = new ProfessorController();
+        AdminController controllerAdmin = new  AdminController();
         
-        if(email.equals(TXTemail.getText()) && senha.equals(TXTsenha.getText())){
-            Home nF = new Home();
-            nF.setVisible(true);
-            dispose();
-        }else try {
-            if(controllerAluno.login(email, h.HashSenha(senha)) == 1){
+        try{
+            
+            if(controllerAdmin.login(email,h.HashSenha(senha)) == 1){
+                Home nF = new Home();
+                nF.setVisible(true);
+                dispose();
+            }
+            else if(controllerAluno.login(email, h.HashSenha(senha)) == 1){
                 // alterar home de aluno
                 Aluno aluno = controllerAluno.pesquisarAlunoPorEmail(email);
-                
                 HomeAluno nf = new HomeAluno(aluno);
                 nf.setVisible(true);
                 dispose();
