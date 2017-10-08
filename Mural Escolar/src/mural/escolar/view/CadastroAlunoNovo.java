@@ -107,11 +107,11 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
 
         InvalidSenhaLabel.setBackground(new java.awt.Color(255, 51, 51));
         InvalidSenhaLabel.setForeground(new java.awt.Color(255, 51, 51));
-        InvalidSenhaLabel.setText("Senha Inválida");
+        InvalidSenhaLabel.setText("A senha deve conter pelomenos 6 caracteres alfanúmericos.");
 
         InvalidMatriculaLabel.setBackground(new java.awt.Color(255, 51, 51));
         InvalidMatriculaLabel.setForeground(new java.awt.Color(255, 51, 51));
-        InvalidMatriculaLabel.setText("Matricula Inválida");
+        InvalidMatriculaLabel.setText("Matricula Inválida, a Matricula deve conter 11 digitos");
 
         InvalidEmailLabel.setBackground(new java.awt.Color(255, 51, 51));
         InvalidEmailLabel.setForeground(new java.awt.Color(255, 51, 51));

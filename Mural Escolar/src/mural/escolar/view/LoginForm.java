@@ -1,12 +1,17 @@
 package mural.escolar.view;
 
 import java.awt.Image;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.controller.ProfessorController;
 import mural.escolar.negocio.Aluno;
+import mural.escolar.negocio.Hash;
 import mural.escolar.negocio.Professor;
 
 /**
@@ -135,7 +140,8 @@ public class LoginForm extends javax.swing.JFrame {
     private void BTNloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNloginActionPerformed
         // Pegar email e senha do Form
         String email = TXTemail.getText();
-        String senha = TXTsenha.getText();
+        String senha = new String(TXTsenha.getPassword());
+        Hash h = new Hash();
         
         // VERIFICAR EMAIL E SENHA 
         // chamar db
@@ -144,25 +150,32 @@ public class LoginForm extends javax.swing.JFrame {
         
         String emailAdmin = "admin@gmail.com";
         String senhaAdmin = "123456";
+        
         if(emailAdmin.equals(TXTemail.getText()) && senhaAdmin.equals(TXTsenha.getText())){
             Home nF = new Home();
             nF.setVisible(true);
             dispose();
-        }else if(controllerAluno.login(email, senha) == 1){
-            // alterar home de aluno
-            Aluno aluno = controllerAluno.pesquisarAlunoPorEmail(email);
-            
-            HomeAluno nf = new HomeAluno(aluno);
-            nf.setVisible(true);
-            dispose();
-        }else if(controllerProf.login(email, senha) == 1){
-            // alterar home de professor
-            Professor professor = controllerProf.pesquisarProfessorPorEmail(email);
-            HomeProfessor np = new HomeProfessor(professor);
-            np.setVisible(true);
-            dispose();
-        }else {
-            JOptionPane.showMessageDialog(null, "E-mail or password incorrect");
+        }else try {
+            if(controllerAluno.login(email, h.HashSenha(senha)) == 1){
+                // alterar home de aluno
+                Aluno aluno = controllerAluno.pesquisarAlunoPorEmail(email);
+                
+                HomeAluno nf = new HomeAluno(aluno);
+                nf.setVisible(true);
+                dispose();
+            }else if(controllerProf.login(email, h.HashSenha(senha)) == 1){
+                // alterar home de professor
+                Professor professor = controllerProf.pesquisarProfessorPorEmail(email);
+                HomeProfessor np = new HomeProfessor(professor);
+                np.setVisible(true);
+                dispose();
+            }else {
+                JOptionPane.showMessageDialog(null, "E-mail or password incorrect");
+            }
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_BTNloginActionPerformed
