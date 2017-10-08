@@ -32,6 +32,7 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         TXTcurso = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -50,6 +51,8 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
         InvalidSenhaLabel = new javax.swing.JLabel();
         InvalidMatriculaLabel = new javax.swing.JLabel();
         InvalidEmailLabel = new javax.swing.JLabel();
+
+        jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -209,13 +212,17 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
 
     private void BTNcadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcadastroActionPerformed
          
+        InvalidNameLabel.setVisible(false);
+        InvalidSenhaLabel.setVisible(false);
+        InvalidMatriculaLabel.setVisible(false);
+        
         String msg = "Deseja realmente cadastrar?";
         String title = "Cadastro de Aluno";
         String msg2 = "Seja Bem-vindo ao mural escolar!";
         // Função de Hashing 
         Hash hash = new Hash();
         // Regex's
-        String regexemail = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"; 
+        String regexemail = " "; 
         String regexname = "^[A-Za-z\\s]+$";
         String regexsenha = "^[a-zA-Z0-9]*$";
         String regexmatricula = "^[0-9]*$";
@@ -228,18 +235,18 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
             //caso não esteja exibe mensanges de erro
                 
             //EMAIL
-              Pattern pattern = Pattern.compile(regexemail);   
-              Matcher matcher = pattern.matcher(TXTemailAluno.getText());
+              //Pattern pattern = Pattern.compile(regexemail);   
+            //  Matcher matcher = pattern.matcher(TXTemailAluno.getText());
               
-                if(!matcher.matches()){
+               // if(!matcher.matches()){
                     // Regex não funciona -.-'
                     //InvalidEmailLabel.setVisible(true);
                     //teste1 = false;
-                }
+               // }
               //NOME
               Pattern pattern2 = Pattern.compile(regexname);
               Matcher matcher2 = pattern2.matcher(TXTnomeAluno.getText());
-            
+               System.out.println(matcher2.matches());
                 if(!matcher2.matches()){
                    InvalidNameLabel.setVisible(true);
                    teste2 = false;
@@ -248,7 +255,9 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
               Pattern pattern3 = Pattern.compile(regexsenha);
               String senha = new String(TXTsenha.getPassword());
               Matcher matcher3 = pattern3.matcher(senha);
-                if(!matcher3.matches() && senha.length() >= 6 ){
+              
+               System.out.println(matcher3.matches() + "  " + (senha.length() < 6) +"   "+  (senha.length() >= 20));
+                if(!matcher3.matches() || ((senha.length() < 6) || (senha.length() >= 20)) ){
                   InvalidSenhaLabel.setVisible(true);
                   teste3 = false;
                 }
@@ -256,7 +265,8 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
               Pattern pattern4 = Pattern.compile(regexmatricula);
               Matcher matcher4 = pattern4.matcher(TXTmatricula.getText());
               String mat = TXTmatricula.getText();
-                if(!matcher4.matches() && (mat.length() != 11)){
+               System.out.println(matcher4.matches() + "   " + (mat.length() != 11));
+                if(!matcher4.matches() || (mat.length() != 11)){
                    InvalidMatriculaLabel.setVisible(true);
                    teste4 = false;
                 }
@@ -279,10 +289,7 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
             } catch (UnsupportedEncodingException | NoSuchAlgorithmException ex) {
                 Logger.getLogger(CadastroAlunoNovo.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-             // Fazer um testes para saber se emails e nome e matricula estão validos
-              //caso não esteja exibe mensanges de erro 
-            
+                 
             JOptionPane.showMessageDialog(null, controllerAluno.inserir(aluno));
             JOptionPane.showMessageDialog(null, msg2);
           
@@ -364,5 +371,6 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

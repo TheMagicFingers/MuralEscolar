@@ -170,7 +170,7 @@ public class LoginForm extends javax.swing.JFrame {
                 np.setVisible(true);
                 dispose();
             }else {
-                JOptionPane.showMessageDialog(null, "E-mail or password incorrect");
+                JOptionPane.showMessageDialog(null, "E-mail or senha incorreto");
             }
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
