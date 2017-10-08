@@ -30,13 +30,11 @@ Partes do programa ainda não implementadas porém previstas no projeto.
  
 **Importante**
 
- 1. Sistema de encriptação de senhas no banco de dados.(Francisco - 50% Ready // O algoritmo está pronto só falta implementar ao
- 
-  banco de dados).
+ 1. Sistema de encriptação de senhas no banco de dados.(Francisco - 100% Ready)
  
  2. Otimizar o uso de threads no programa.
  
- 3. Sistema de cadastro de usuários novos (sem ser já estando logado)(Francisco - 95%)
+ 3. Sistema de cadastro de usuários novos (sem ser já estando logado)(Francisco - 95% - só falta o Regex para o Email).
  
  4. Sistema de recuperação de senhas
  
@@ -51,4 +49,23 @@ Partes do programa ainda não implementadas porém previstas no projeto.
  *Alterado no dia 05/10/2017. Versão 1.235 . C-Flag LTDA*
  
   ***------------------------------------------------------------------***
+# BUGS/FALHAS ARRUMADAS 
 
+Bugs/erros arrumados no programa.
+
+1.Arrumado o login de admin agora o administrador está propriamente cadatrado no banco de dados ao invés de está digitado no código.
+
+
+  ***------------------------------------------------------------------***
+  
+ # BUGS/FALHAS CONHECIDAS PORÉM NÃO ARRUMADAS
+
+Bugs/erros ainda não arrumados no programa.
+
+1.O a expressão regular usada no para verificar email no login ainda não está funcionando corretamente.Logo o sistema está aceitando
+todo tipo emails.
+
+
+  ***------------------------------------------------------------------***
+
+ *Alterado no dia 08/10/2017. Versão 1.300 . C-Flag LTDA*
