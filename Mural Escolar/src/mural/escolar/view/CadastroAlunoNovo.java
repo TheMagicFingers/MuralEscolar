@@ -1,5 +1,9 @@
 package mural.escolar.view;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -34,7 +38,7 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        TXTsenha = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TXTmatricula = new javax.swing.JTextField();
@@ -43,12 +47,15 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
         BTNcadastro = new javax.swing.JButton();
         BTNVoltar = new javax.swing.JButton();
         InvalidNameLabel = new javax.swing.JLabel();
+        InvalidSenhaLabel = new javax.swing.JLabel();
+        InvalidMatriculaLabel = new javax.swing.JLabel();
+        InvalidEmailLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel5.setText("Ola! seja bem-vindo ao Mural Escolar");
+        jLabel5.setText("Ola! Seja bem-vindo ao Mural Escolar");
 
         TXTcurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ABI - Ciência da Computação", "Licenciatura em Física", "Eletromecânica" }));
 
@@ -63,9 +70,9 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Matricula:");
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        TXTsenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                TXTsenhaActionPerformed(evt);
             }
         });
 
@@ -92,35 +99,54 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
         InvalidNameLabel.setBackground(new java.awt.Color(255, 51, 51));
         InvalidNameLabel.setForeground(new java.awt.Color(255, 51, 51));
         InvalidNameLabel.setText("Nome Inválido");
+        InvalidNameLabel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                InvalidNameLabelComponentHidden(evt);
+            }
+        });
+
+        InvalidSenhaLabel.setBackground(new java.awt.Color(255, 51, 51));
+        InvalidSenhaLabel.setForeground(new java.awt.Color(255, 51, 51));
+        InvalidSenhaLabel.setText("Senha Inválida");
+
+        InvalidMatriculaLabel.setBackground(new java.awt.Color(255, 51, 51));
+        InvalidMatriculaLabel.setForeground(new java.awt.Color(255, 51, 51));
+        InvalidMatriculaLabel.setText("Matricula Inválida");
+
+        InvalidEmailLabel.setBackground(new java.awt.Color(255, 51, 51));
+        InvalidEmailLabel.setForeground(new java.awt.Color(255, 51, 51));
+        InvalidEmailLabel.setText("Email Inválido");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(InvalidNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(BTNVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BTNcadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(TXTemailAluno)
-                    .addComponent(jLabel3)
-                    .addComponent(TXTmatricula)
-                    .addComponent(jLabel2)
-                    .addComponent(TXTcurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TXTnomeAluno)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InvalidEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InvalidMatriculaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InvalidSenhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InvalidNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel4)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(175, 175, 175)
+                            .addComponent(BTNVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(BTNcadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TXTemailAluno)
+                        .addComponent(TXTmatricula)
+                        .addComponent(TXTcurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TXTnomeAluno)
+                        .addComponent(TXTsenha, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel1)))
                 .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
@@ -128,46 +154,58 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel5)))
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(25, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)))
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(InvalidNameLabel))
+                .addComponent(TXTnomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TXTnomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InvalidNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TXTsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(InvalidSenhaLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TXTmatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TXTmatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(InvalidMatriculaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TXTemailAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TXTemailAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(InvalidEmailLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(13, 13, 13)
-                .addComponent(TXTcurso, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TXTcurso, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BTNVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BTNcadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
 
+        InvalidNameLabel.setVisible(false);
+        InvalidSenhaLabel.setVisible(false);
+        InvalidMatriculaLabel.setVisible(false);
+        InvalidEmailLabel.setVisible(false);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    private void TXTsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXTsenhaActionPerformed
+
+    }//GEN-LAST:event_TXTsenhaActionPerformed
 
     private void BTNcadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcadastroActionPerformed
          
@@ -177,28 +215,73 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
         // Função de Hashing 
         Hash hash = new Hash();
         // Regex's
-        String regexemail = "^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$"; 
-        
-        //Pattern pattern = Pattern.compile(regexemail);
-        //Matcher matcher = pattern.martcher(email);
-        
+        String regexemail = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"; 
+        String regexname = "^[A-Za-z\\s]+$";
+        String regexsenha = "^[a-zA-Z0-9]*$";
+        String regexmatricula = "^[0-9]*$";
+        boolean teste1 = true;
+        boolean teste2 = true;
+        boolean teste3 = true;
+        boolean teste4 = true;
+                
+             // Fazer um testes para saber se emails e nome e matricula estão validos
+            //caso não esteja exibe mensanges de erro
+                
+            //EMAIL
+              Pattern pattern = Pattern.compile(regexemail);   
+              Matcher matcher = pattern.matcher(TXTemailAluno.getText());
+              
+                if(!matcher.matches()){
+                    // Regex não funciona -.-'
+                    //InvalidEmailLabel.setVisible(true);
+                    //teste1 = false;
+                }
+              //NOME
+              Pattern pattern2 = Pattern.compile(regexname);
+              Matcher matcher2 = pattern2.matcher(TXTnomeAluno.getText());
+            
+                if(!matcher2.matches()){
+                   InvalidNameLabel.setVisible(true);
+                   teste2 = false;
+                }
+               //SENHA
+              Pattern pattern3 = Pattern.compile(regexsenha);
+              String senha = new String(TXTsenha.getPassword());
+              Matcher matcher3 = pattern3.matcher(senha);
+                if(!matcher3.matches() && senha.length() >= 6 ){
+                  InvalidSenhaLabel.setVisible(true);
+                  teste3 = false;
+                }
+               //MATRICULA
+              Pattern pattern4 = Pattern.compile(regexmatricula);
+              Matcher matcher4 = pattern4.matcher(TXTmatricula.getText());
+              String mat = TXTmatricula.getText();
+                if(!matcher4.matches() && (mat.length() != 11)){
+                   InvalidMatriculaLabel.setVisible(true);
+                   teste4 = false;
+                }
+                
+        if (teste1 == true &&  teste2 == true && teste3 ==  true && teste4 == true){ 
         int reply = JOptionPane.showConfirmDialog(null, msg, title, JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION)
         {
             // Incrementar Banco de Dados
-            Aluno aluno = new Aluno();
-            AlunoController controllerAluno = new AlunoController();
-
-            aluno.setNome(TXTnomeAluno.getText());
-            aluno.setEmail(TXTemailAluno.getText());
-            aluno.setCurso(TXTcurso.getSelectedItem().toString());
-            aluno.setMatricula(TXTmatricula.getText());
-            aluno.setSenha("padrao");
+              Aluno aluno = new Aluno();
+              AlunoController controllerAluno = new AlunoController();
             
-            // Fazer um testes para saber se emails e nome e matricula estão validos
-            //caso contrario exibe mensanges de erro 
+              aluno.setNome(TXTnomeAluno.getText());
+              aluno.setEmail(TXTemailAluno.getText());
+              aluno.setCurso(TXTcurso.getSelectedItem().toString());
+              aluno.setMatricula(TXTmatricula.getText());
             
+            try {
+                aluno.setSenha( hash.HashSenha(senha));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException ex) {
+                Logger.getLogger(CadastroAlunoNovo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
+             // Fazer um testes para saber se emails e nome e matricula estão validos
+              //caso não esteja exibe mensanges de erro 
             
             JOptionPane.showMessageDialog(null, controllerAluno.inserir(aluno));
             JOptionPane.showMessageDialog(null, msg2);
@@ -206,7 +289,10 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
           dispose();
           LoginForm jF = new LoginForm(); // Abre o formulário de login denovo
           jF.setVisible(true);
+         
+           }
         }
+        
     }//GEN-LAST:event_BTNcadastroActionPerformed
 
     private void BTNVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNVoltarActionPerformed
@@ -216,6 +302,10 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
           jF.setVisible(true);
           dispose();
     }//GEN-LAST:event_BTNVoltarActionPerformed
+
+    private void InvalidNameLabelComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_InvalidNameLabelComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InvalidNameLabelComponentHidden
 
     /**
      * @param args the command line arguments
@@ -258,11 +348,15 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNVoltar;
     private javax.swing.JButton BTNcadastro;
+    private javax.swing.JLabel InvalidEmailLabel;
+    private javax.swing.JLabel InvalidMatriculaLabel;
     private javax.swing.JLabel InvalidNameLabel;
+    private javax.swing.JLabel InvalidSenhaLabel;
     private javax.swing.JComboBox<String> TXTcurso;
     private javax.swing.JTextField TXTemailAluno;
     private javax.swing.JTextField TXTmatricula;
     private javax.swing.JTextField TXTnomeAluno;
+    private javax.swing.JPasswordField TXTsenha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -270,6 +364,5 @@ public class CadastroAlunoNovo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }

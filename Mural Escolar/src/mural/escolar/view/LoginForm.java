@@ -173,9 +173,6 @@ public class LoginForm extends javax.swing.JFrame {
         telaCadAlunoNovo.setTitle("Formulário de Cadastro");
         telaCadAlunoNovo.setFocusable(true);
  
-        
-        //ImageIcon icone = new ImageIcon("/imagens/logo1.png"); not working
-        //telaCadAlunoNovo.setIconImage(icone);
         dispose();
         
     }//GEN-LAST:event_BTNCadastroActionPerformed
