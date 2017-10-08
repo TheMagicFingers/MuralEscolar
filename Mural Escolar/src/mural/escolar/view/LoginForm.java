@@ -148,10 +148,7 @@ public class LoginForm extends javax.swing.JFrame {
         AlunoController controllerAluno = new AlunoController();
         ProfessorController controllerProf = new ProfessorController();
         
-        String emailAdmin = "admin@gmail.com";
-        String senhaAdmin = "123456";
-        
-        if(emailAdmin.equals(TXTemail.getText()) && senhaAdmin.equals(TXTsenha.getText())){
+        if(email.equals(TXTemail.getText()) && senha.equals(TXTsenha.getText())){
             Home nF = new Home();
             nF.setVisible(true);
             dispose();
@@ -172,9 +169,7 @@ public class LoginForm extends javax.swing.JFrame {
             }else {
                 JOptionPane.showMessageDialog(null, "E-mail or password incorrect");
             }
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex) {
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException ex) {
             Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
