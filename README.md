@@ -50,7 +50,7 @@ Partes do programa ainda não implementadas porém previstas no projeto.
  
  7. Fazer a aba "Sobre" do menu inicial. (Done)
  
- 8. Pesquisar professores por nome ou siape.
+ 8. Pesquisar professores por nome ou siape. (Done)
  
  *Alterado no dia 05/10/2017. Versão 1.235 . C-Flag LTDA*
  
