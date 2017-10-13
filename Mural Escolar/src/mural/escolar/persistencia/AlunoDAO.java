@@ -17,6 +17,7 @@ public interface AlunoDAO {
     public String alterar(Aluno p);
     public String excluir(Aluno p);
     public List<Aluno> listarTodos();
+    public List<Aluno> pesquisarAluno(String condicao, boolean nome, boolean email, boolean matricula);
     public Aluno pesquisarPorEmail(String email);
     public Integer login(String email, String senha);
 }

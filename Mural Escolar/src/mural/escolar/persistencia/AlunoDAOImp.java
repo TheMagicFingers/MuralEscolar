@@ -159,6 +159,46 @@ public class AlunoDAOImp implements AlunoDAO{
     }
     
     @Override
+    public List<Aluno> pesquisarAluno(String condicao, boolean nome, boolean email, boolean matricula){
+        String sql = "select * from aluno where ";
+        if(nome)
+            sql += "nome like '%"+condicao+"%'";
+        else if(email)
+            sql += "email like '%"+condicao+"%'";
+        else if(matricula)
+            sql += "matricula like '%"+condicao+"%'";
+        
+        Connection conn = SQLiteConnectionFactory.getConnection();
+        List<Aluno> lista = new ArrayList<>();
+        
+        try{
+            PreparedStatement pst  = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            if(rs != null){
+                while(rs.next()){
+                    Aluno aluno = new Aluno();
+                    aluno.setNome(rs.getString(2));
+                    aluno.setEmail(rs.getString(3));
+                    //aluno.setSenha(rs.getString(3));
+                    aluno.setMatricula(rs.getString(5));
+                    aluno.setCurso(rs.getString(6));
+                    lista.add(aluno);
+                }
+                
+                return lista;
+            }else{
+                return null;
+            }
+        }catch(SQLException e){
+            return null;
+        }finally{
+            SQLiteConnectionFactory.close(conn);
+        }
+
+    }
+    
+    @Override
     public Integer login(String email, String senha){
         Aluno aluno = pesquisarPorEmail(email);
         if(aluno != null){
