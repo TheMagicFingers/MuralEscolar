@@ -5,8 +5,10 @@
  */
 package mural.escolar.view;
 
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import mural.escolar.controller.AlunoController;
 import mural.escolar.negocio.Aluno;
 
@@ -35,6 +37,8 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         TXTemailAluno = new javax.swing.JTextField();
@@ -44,6 +48,9 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        radioNome = new javax.swing.JRadioButton();
+        radioEmail = new javax.swing.JRadioButton();
+        radioMatricula = new javax.swing.JRadioButton();
 
         setClosable(true);
 
@@ -127,6 +134,20 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
+        buttonGroup1.add(radioNome);
+        radioNome.setText("Nome");
+        radioNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioNomeActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(radioEmail);
+        radioEmail.setText("Email");
+
+        buttonGroup1.add(radioMatricula);
+        radioMatricula.setText("Matricula");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,7 +159,13 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel1)
                             .addComponent(TXTemailAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(radioNome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(radioEmail)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radioMatricula))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5))
@@ -156,9 +183,14 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(4, 4, 4)
                 .addComponent(TXTemailAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioNome)
+                    .addComponent(radioEmail)
+                    .addComponent(radioMatricula))
+                .addGap(1, 1, 1)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(PainelBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
         );
@@ -172,8 +204,22 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
         // BUSCA o email no banco de dados e depois
         // coloca as informacoes no TXAinformacoes e imprime:
         AlunoController controllerAluno = new AlunoController();
-        aluno = controllerAluno.pesquisarAlunoPorEmail(TXTemailAluno.getText());
-        
+        List<Aluno> lista = controllerAluno.pesquisarAluno(TXTemailAluno.getText(), radioNome.isSelected(), radioEmail.isSelected(), radioMatricula.isSelected());
+        model.clear();
+        if(lista.size() != 0){
+            for(int i=0;i<lista.size();i++){
+                Aluno a = lista.get(i);
+
+                model.addElement(a.getEmail());
+                jTable1.getModel().setValueAt(a.getNome(), i, 0);
+                jTable1.getModel().setValueAt(a.getEmail(), i, 1);
+                jTable1.getModel().setValueAt(a.getMatricula(), i, 2);
+                jTable1.getModel().setValueAt(a.getCurso(), i, 3);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Pesquisa não encontrada!");
+        }
+        /*
         if(aluno != null){
             model.addElement(aluno.getEmail());
             jTable1.getModel().setValueAt(aluno.getNome(), 0, 0);
@@ -183,14 +229,16 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Email não encontrado!");
         }
-        
+        */
         //PainelBrusca.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
     
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        System.out.println("Senha no pesquisar: " + aluno.getSenha());
+        
+        AlunoController controllerAluno = new AlunoController();
+        aluno = controllerAluno.pesquisarAlunoPorEmail( model.getElementAt(jTable1.getSelectedRow()).toString() );
         new AlterarAluno(aluno).setVisible(true);
         //Aluno aluno = jTable1.convertRowIndexToModel(0);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -201,10 +249,15 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, controllerAluno.excluir(aluno));
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void radioNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioNomeActionPerformed
+    }//GEN-LAST:event_radioNomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PainelBusca;
     private javax.swing.JTextField TXTemailAluno;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -212,5 +265,8 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JRadioButton radioEmail;
+    private javax.swing.JRadioButton radioMatricula;
+    private javax.swing.JRadioButton radioNome;
     // End of variables declaration//GEN-END:variables
 }

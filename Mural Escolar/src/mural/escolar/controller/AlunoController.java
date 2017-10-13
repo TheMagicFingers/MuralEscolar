@@ -37,6 +37,11 @@ public class AlunoController {
         return dao.pesquisarPorEmail(email);
     }
     
+    public List<Aluno> pesquisarAluno(String condicao, boolean nome, boolean email, boolean matricula){
+        AlunoDAOImp dao = new AlunoDAOImp();
+        return dao.pesquisarAluno(condicao,nome,email,matricula);
+    }
+    
     public Integer login(String email, String senha){
         AlunoDAOImp dao = new AlunoDAOImp();
         return dao.login(email, senha);
