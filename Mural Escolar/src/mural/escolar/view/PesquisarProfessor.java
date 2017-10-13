@@ -200,7 +200,7 @@ public class PesquisarProfessor extends javax.swing.JInternalFrame {
         professor = controllerProfessor.pesquisarProfessorPorEmail(TXTemailProf.getText());
         model.clear();
         List<Professor> lista = controllerProfessor.pesquisarProfessor(TXTemailProf.getText(), radioNome.isSelected(), radioSIAPE.isSelected());
-        System.out.println(lista.size());
+        
         if(!lista.isEmpty()){
             for(int i=0;i<lista.size();i++){
                 Professor p = lista.get(i);

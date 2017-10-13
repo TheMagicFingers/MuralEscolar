@@ -26,11 +26,11 @@ Partes do programa ainda não implementadas porém previstas no projeto.
  
  4. Sistema para alterar,incluir,excluir notas (Professor).
  
- 5.Sistema do aluno poder se cadastrar em uma disciplina.
+ 5. Sistema do aluno poder se cadastrar em uma disciplina.
  
- 6.Sistema para o professor poder abrir alguma disciplina.
+ 6. Sistema para o professor poder abrir alguma disciplina.
  
- 8.Implementação de mensagem privada do professor para algum aluno.
+ 8. Implementação de mensagem privada do professor para algum aluno.
  
  ***------------------------------------------------------------------***
  
@@ -59,7 +59,7 @@ Partes do programa ainda não implementadas porém previstas no projeto.
 
 Bugs/erros arrumados no programa.
 
-1.Arrumado o login de admin agora o administrador está propriamente cadatrado no banco de dados ao invés de está digitado no código.
+1. Arrumado o login de admin agora o administrador está propriamente cadatrado no banco de dados ao invés de está digitado no código.
 
 
   ***------------------------------------------------------------------***
