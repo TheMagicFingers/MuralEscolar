@@ -34,6 +34,11 @@ public class ProfessorController {
         return dao.pesquisarPorEmail(email);
     }
     
+    public List<Professor> pesquisarProfessor(String condicao, boolean nome, boolean siape){
+        ProfessorDAOImp dao = new ProfessorDAOImp();
+        return dao.pesquisarProfessor(condicao, nome, siape);
+    }
+    
     public Integer login(String email, String senha){
         ProfessorDAOImp dao = new ProfessorDAOImp();
         return dao.login(email, senha);

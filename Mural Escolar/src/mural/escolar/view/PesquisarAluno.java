@@ -206,7 +206,7 @@ public class PesquisarAluno extends javax.swing.JInternalFrame {
         AlunoController controllerAluno = new AlunoController();
         List<Aluno> lista = controllerAluno.pesquisarAluno(TXTemailAluno.getText(), radioNome.isSelected(), radioEmail.isSelected(), radioMatricula.isSelected());
         model.clear();
-        if(lista.size() != 0){
+        if(!lista.isEmpty()){
             for(int i=0;i<lista.size();i++){
                 Aluno a = lista.get(i);
 
