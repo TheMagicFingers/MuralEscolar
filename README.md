@@ -46,7 +46,7 @@ Partes do programa ainda não implementadas porém previstas no projeto.
  
  5. Aprimorar o menu inicial 
  
- 6. Pesquisar por alunos nome ou matricula.
+ 6. Pesquisar por alunos nome ou matricula. (Done)
  
  7. Fazer a aba "Sobre" do menu inicial.
  
