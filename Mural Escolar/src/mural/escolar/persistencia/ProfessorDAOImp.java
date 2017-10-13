@@ -153,6 +153,47 @@ public class ProfessorDAOImp implements ProfessorDAO{
     }
 
     @Override
+    public List<Professor> pesquisarProfessor(String condicao, boolean nome, boolean siape){
+        String sql = "select * from professor where ";
+        
+        if(nome)
+            sql += "nome like '%" + condicao +"%'";
+        else if(siape)
+            sql += "siape like '%" + condicao +"%'";
+        
+        System.out.println(sql);
+        Connection conn = SQLiteConnectionFactory.getConnection();
+        List<Professor> lista = new ArrayList<>();
+        
+        try{
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            if(rs != null){
+                while(rs.next()){
+                    Professor professor = new Professor();
+                    professor.setNome(rs.getString(2));
+                    professor.setEmail(rs.getString(3));
+                    professor.setCpf(rs.getString(4));
+                    professor.setSiape(rs.getString(6));
+                    
+                    lista.add(professor);
+                }
+                
+                return lista;
+            }else{
+                System.out.println("rs nulo");
+                return null;
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return null;
+        }finally{
+            SQLiteConnectionFactory.close(conn);
+        }
+        
+    }
+    @Override
     public Integer login(String email, String senha) {
         Professor prof = pesquisarPorEmail(email);
         if(prof != null){
