@@ -48,7 +48,7 @@ Partes do programa ainda não implementadas porém previstas no projeto.
  
  6. Pesquisar por alunos nome ou matricula. (Done)
  
- 7. Fazer a aba "Sobre" do menu inicial.
+ 7. Fazer a aba "Sobre" do menu inicial. (Done)
  
  8. Pesquisar professores por nome ou siape.
  
