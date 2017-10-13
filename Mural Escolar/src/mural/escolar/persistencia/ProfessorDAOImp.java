@@ -161,7 +161,6 @@ public class ProfessorDAOImp implements ProfessorDAO{
         else if(siape)
             sql += "siape like '%" + condicao +"%'";
         
-        System.out.println(sql);
         Connection conn = SQLiteConnectionFactory.getConnection();
         List<Professor> lista = new ArrayList<>();
         
